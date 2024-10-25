@@ -23,7 +23,6 @@ from selenium.webdriver.common.by import By
 
 def sacar_url_principales_supermercados(url):
     driver = webdriver.Chrome()
-    url = "https://super.facua.org/"
     urls_super = []
 
     driver.get(url)
