@@ -21,20 +21,20 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException # Excepciones comunes de selenium que nos podemos encontrar
 from selenium.webdriver.common.by import By
 
-def sacar_url_principales_supermercados(url):
+def get_urls(url, texto):
     driver = webdriver.Chrome()
-    urls_super = []
+    urls_return = []
 
     driver.get(url)
     driver.maximize_window()
     sleep(5)
     driver.find_element('css selector','#rcc-confirm-button').click()
     sleep(5)
-    links = driver.find_elements(By.PARTIAL_LINK_TEXT, 'Acceder')
+    links = driver.find_elements(By.PARTIAL_LINK_TEXT, texto)
 
     for i in links:
-        urls_super.append(i.get_attribute("href"))
+        urls_return.append(i.get_attribute("href"))
 
     driver.close()
 
-    return urls_super
+    return urls_return
