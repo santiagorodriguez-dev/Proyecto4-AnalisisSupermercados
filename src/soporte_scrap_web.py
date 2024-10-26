@@ -16,14 +16,14 @@ import multiprocessing
 
 # Importar librerías para automatización de navegadores web con Selenium
 # -----------------------------------------------------------------------
-from selenium import webdriver  # Selenium es una herramienta para automatizar la interacción con navegadores web.
-from webdriver_manager.chrome import ChromeDriverManager  # ChromeDriverManager gestiona la instalación del controlador de Chrome.
-from selenium.webdriver.common.keys import Keys  # Keys es útil para simular eventos de teclado en Selenium.
-from selenium.webdriver.support.ui import Select  # Select se utiliza para interactuar con elementos <select> en páginas web.
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException # Excepciones comunes de selenium que nos podemos encontrar
-from selenium.webdriver.common.by import By
+from selenium import webdriver  # type: ignore # Selenium es una herramienta para automatizar la interacción con navegadores web.
+from webdriver_manager.chrome import ChromeDriverManager  # type: ignore # ChromeDriverManager gestiona la instalación del controlador de Chrome.
+from selenium.webdriver.common.keys import Keys  # type: ignore # Keys es útil para simular eventos de teclado en Selenium.
+from selenium.webdriver.support.ui import Select  # type: ignore # Select se utiliza para interactuar con elementos <select> en páginas web.
+from selenium.webdriver.support.ui import WebDriverWait # type: ignore
+from selenium.webdriver.support import expected_conditions as EC # type: ignore
+from selenium.common.exceptions import NoSuchElementException # type: ignore # Excepciones comunes de selenium que nos podemos encontrar
+from selenium.webdriver.common.by import By # type: ignore
 
 def get_urls(input_data):
     driver = webdriver.Chrome()
@@ -43,21 +43,41 @@ def get_urls(input_data):
 
     return urls_return
 
-def main(input_data, texto):
+def procesar(input_data, texto): 
 
-    start_time = time.time()
-
-    lista_total = []
+    retun_list = []
     
     args = [(i, texto) for i in input_data]
 
-    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
+    with multiprocessing.Pool(processes=4) as pool:
         resultados = pool.map(get_urls, args)
 
     for res in resultados:
-        lista_total.append(res)
+        retun_list.append(res)
    
-    end_time = time.time()
-    print(f"\n el total duró {end_time - start_time:.2f} segundos.")
+    return retun_list
+
+def main(url_first):
+
+    start_time = time.time()
+
+    lista_all_productos = []
+
+    url_first = ["https://super.facua.org/"]
+
+    list_urls_super = procesar(url_first,"Acceder")
+
+    list_con_categorias=[]
+
+    for super in list_urls_super:
+        list_con_categorias.append(procesar(super,'Ver'))
+
+    for k in list_con_categorias:
+        for h in k:
+            lista_all_productos.append(procesar(h,'Histórico'))
+
     
-    return lista_total
+    end_time = time.time()
+    print(f"\n Total scrapeo de urls duró {end_time - start_time:.2f} segundos.")
+
+    return lista_all_productos
