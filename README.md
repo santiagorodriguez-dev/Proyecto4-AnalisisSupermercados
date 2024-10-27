@@ -20,6 +20,7 @@ La página [FACUA: Precios Supermercados](https://super.facua.org/) proporciona 
 </div>
 
 **Almacenamiento en base de datos**: Crear una base de datos en SQL que almacene la información recolectada de manera estructurada.
+
 **Estructura de BD**: Se han creado tres tablas con los datos de supermercados, categorias y productos.
 <div style="text-align: center;">
   <img src="https://github.com/santiagorodriguez-dev/Proyecto4-AnalisisSupermercados/blob/main/images/diagrama.PNG" alt="esquema" />
@@ -46,7 +47,7 @@ Observamos que dia, eroski y mercadona tienes los precios promedio mas bajos.
 #### Conclusion:
 Observamos que dia, mercadona tienes los precios globales de todos los productos maximos mas bajos que el resto de supermercados.
 
-#### Análisis de la Evolución de Precios por supermercado y la categoria leche**
+#### Análisis de la Evolución de Precios por supermercado y la categoria leche
  
 <div style="text-align: center;">
   <img src="https://github.com/santiagorodriguez-dev/Proyecto4-AnalisisSupermercados/blob/main/images/03.png" alt="esquema" />
@@ -56,7 +57,7 @@ Observamos que dia, mercadona tienes los precios globales de todos los productos
 Observamos que carrefour, tiene un pico estacional en el precio promedio de la leche. posiblemente por que en la categoria de leche tambien se incluyen productos
 para proteger del sol en verano. Ademas vemos que eroski e hipercor, tienen los precios promedio mas bajos, con mucha diferencia.
 
-#### Análisis de la Evolución de Precios por supermercado y la categoria aceite de girasol**
+#### Análisis de la Evolución de Precios por supermercado y la categoria aceite de girasol
   
 <div style="text-align: center;">
   <img src="https://github.com/santiagorodriguez-dev/Proyecto4-AnalisisSupermercados/blob/main/images/04.png" alt="esquema" />
