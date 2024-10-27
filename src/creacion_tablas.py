@@ -87,23 +87,37 @@ def insert_data_productos_hist_precios(conn, cursor, df):
     """
     Carga un DataFrame en la tabla 'productos_hist_precios'.
     """
-    #try:
-    for index, row in df.iterrows():
-            cursor.execute("""
-                INSERT INTO productos_hist_precios (fecha, precio, variacion, id_supermercado, id_categoria, desc_producto)
-                VALUES (%s, %s, %s, %s, %s, %s)
-            """, (
-                pd.to_datetime(row['fecha'], format='%d/%m/%Y').date(), 
-                float(row['precio'].replace(',', '.')),
-                row['Variacion'],
-                row['id_supermercado'],
-                row['id_categoria'],
-                row['desc_producto']
-            ))
-    conn.commit()
-    print("Datos cargados con éxito en la tabla 'productos_hist_precios'.")
-    #except :
-    #    print(f"Error al cargar datos en la tabla: productos_hist_precios")
+    try:
+        for index, row in df.iterrows():
+                cursor.execute("""
+                    INSERT INTO productos_hist_precios (fecha, precio, variacion, id_supermercado, id_categoria, desc_producto)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                """, (
+                    pd.to_datetime(row['fecha'], format='%d/%m/%Y').date(), 
+                    float(row['precio'].replace(',', '.')),
+                    row['Variacion'],
+                    row['id_supermercado'],
+                    row['id_categoria'],
+                    row['desc_producto']
+                ))
+        conn.commit()
+        print("Datos cargados con éxito en la tabla 'productos_hist_precios'.")
+    except :
+        print(f"Error al cargar datos en la tabla: productos_hist_precios")
+
+
+def main(conn, cursor, df):
+    create_table_supermercados(conn,cursor)
+
+    insert_supermercados(conn,cursor)
+
+    create_table_categorias(conn,cursor)
+
+    insert_categorias(conn,cursor)
+
+    create_table_productos_hist_precios(conn,cursor)
+
+    insert_data_productos_hist_precios(conn,cursor,df)
 
     
 
