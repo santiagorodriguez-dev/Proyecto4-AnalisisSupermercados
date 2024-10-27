@@ -31,6 +31,7 @@ La página [FACUA: Precios Supermercados](https://super.facua.org/) proporciona 
 <div style="text-align: center;">
   <img src="https://github.com/santiagorodriguez-dev/Proyecto4-AnalisisSupermercados/blob/main/images/01.png" alt="esquema" />
 </div>
+
 ## Conclusion:
 Observamos que dia, eroski y mercadona tienes los precios promedio mas bajos.
 
