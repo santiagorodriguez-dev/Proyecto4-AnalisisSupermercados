@@ -78,7 +78,7 @@ El precio promedio se mantiene en todos los supermercados salvo en carrefour que
    - Por otro lado vemos que el supermercado con precios promedios mas bajos en todas las categorias es eroski.
 
 #### Propuestas de Mejora:
-   - Analisis mas profundo en la segmentacion de productos por cantidad de los mismos, eso daria un analis mas exacto.
+   - Analisis mas profundo en la segmentacion de productos por cantidad de los mismos, eso daria un analisis mas exacto.
   
 ## Construido con 🛠️
 
