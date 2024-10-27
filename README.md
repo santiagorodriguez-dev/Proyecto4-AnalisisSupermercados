@@ -7,6 +7,7 @@ La página [FACUA: Precios Supermercados](https://super.facua.org/) proporciona 
 ## Objetivos Específicos
 
 **Scraping de datos**: Extraer información detallada de todos los productos disponibles en la web de FACUA para cada uno de los supermercados listados.
+
 **Extraccion de datos**: Se ha extraido dinamicamente las urls de todos los supermercados.
 <div style="text-align: center;">
   <img src="https://github.com/santiagorodriguez-dev/Proyecto4-AnalisisSupermercados/blob/main/images/listado_super.PNG" alt="esquema" />
